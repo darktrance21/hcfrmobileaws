@@ -1,0 +1,594 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>HCFR Mobile</title>
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="stylesheet" type="text/css" href="styles/calendar.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/all.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/solid.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/font-awesome-animation.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/light.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/duotone.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/regular.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/brands.css">
+<link rel="stylesheet" type="text/css" href="styles/colors.css">
+<link rel="stylesheet" type="text/css" href="styles/calc-style.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/all.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,500,500i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_by_pwa.js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+</head>
+    
+<body class="theme-dark" data-gradient="gradient-1">
+<span style="color: #007711"></span><span style="color: #087CF7"></span>
+  <!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+<script src="/__/firebase/7.8.0/firebase-firestore.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA-Q8oKC9VKvX3jzUft5y-uEclOz6nh0xg",
+    authDomain: "hcfr-on-the-go.firebaseapp.com",
+    databaseURL: "https://hcfr-on-the-go.firebaseio.com",
+    projectId: "hcfr-on-the-go",
+    storageBucket: "hcfr-on-the-go.appspot.com",
+    messagingSenderId: "476648601052",
+    appId: "1:476648601052:web:1ebd2170856d7c934a4b19",
+    measurementId: "G-M2FR2XSF59"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+        
+<div id="page">
+    
+    <div id="page-preloader">
+        <div class="loader-main"><div class="preload-spinner"></div></div>
+    </div>
+    
+	<div class="header header-fixed header-logo-app">       
+		<a href="index.html" class="back-button header-logo"></a>
+        <a href="#" class="header-icon header-icon-1" data-menu="menu-navigation"><i class="fad fa-bars animated faa-wrench lime"></i></a>
+		<a href="#" class="header-icon header-icon-2" data-menu="menu-updates"><i class="fad fa-bookmark animated faa-ring yellow"></i></a>
+		<a href="menu-np.html" class="header-icon header-icon-3"><i class="fad fa-search animated olive faa-pulse"></i></a>
+		<a href="#" class="header-icon header-icon-4" data-menu="menu-settings"><i class="fad fa-cog fa-spin font-13 teal"></i></a>
+		<a href="#" class="header-icon header-icon-5" data-toggle-theme><i class="fad fa-moon animated faa-shake fuchsia"></i></a>
+	</div>
+	
+    <!-- Be sure this is on your main visiting page, for example, the index.html page-->
+    <!-- Install Prompt for Android -->
+    <div id="menu-install-pwa-android" class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="340" 
+        data-menu-effect="menu-parallax">
+        <div class="boxed-text-huge top-25">
+            <img class="round-medium center-horizontal" src="app/icons/icon-128x128.png" alt="img" width="90">
+            <h4 class="center-text bolder top-20 bottom-10">Add HCFR-Mobile on your Home Screen</h4>
+            <p>
+                Install HCFR-Mobile on your home screen, and access it just like a regular app. It really is that simple!
+            </p>
+            <a href="#" class="pwa-install button button-xs button-round-medium button-center-large shadow-large bg-blue2-dark bottom-0">Add to Home Screen</a> <br>
+            <a href="#" class="pwa-dismiss close-menu center-text color-gray2-light uppercase ultrabold opacity-60 under-heading font-10">Maybe later</a>
+            <div class="clear"></div>
+        </div>
+    </div>   
+
+    <!-- Install instructions for iOS -->
+    <div id="menu-install-pwa-ios" 
+        class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="320" 
+        data-menu-effect="menu-parallax">
+        <div class="boxed-text-huge top-25">
+            <img class="round-medium center-horizontal" src="app/icons/icon-128x128.png" alt="img" width="90">
+            <h4 class="center-text bolder top-20 bottom-10">Add HCFR-Mobile on your Home Screen</h4>
+            <p class="bottom-15">
+                Install HCFR-Mobile on your home screen, and access it just like a regular app.  Open your Safari menu and tap "Add to Home Screen".
+            </p>
+            <div class="clear"></div>
+            <a href="#" class="pwa-dismiss close-menu center-text color-red2-dark uppercase ultrabold opacity-80 top-25">Maybe later</a>
+            <i class="fa-ios-arrow fa fa-caret-down font-40"></i>
+        </div>
+    </div>
+
+	
+    <div class="scroll-ad shadow-huge">
+        <img src="images/pictures/10s.png" class="shadow-medium" alt="img">
+        <h1 class="uppercase ultrabold font-16"><span class="color-red-dark">HCFR </span></h1>
+        <em>HCFR Shift Calendar <br> USE LANDSCAPE MODE</em>
+		<a href="#" data-menu="action-video" class="bg-red-dark color-white shadow-small">VIEW</a>
+    </div>
+         
+    <div class="page-bg"><div></div></div>
+    <div class="page-content header-clear-large">     
+     
+        <div class="visible-slider single-slider owl-carousel owl-no-dots">
+            <div class="slider-item center-text">
+                <div data-height="250" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom center-text bottom-40">
+                        <h1 class="font-24 font-700 color-white">Welcome To HCFR Mobile!</h1>
+                        <span class="under-heading color-white font-12 opacity-80">Never be without info again!</span>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-10"></div>
+                </div>  
+        <a class="button button-m caption-under-button round-huge shadow-huge button-center-large bg-fuchsia" href="stations.html">Station Locations</a>
+            </div>
+	
+            <div class="slider-item center-text">
+                <div data-height="250" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom center-text bottom-40">
+                        <h1 class="font-24 font-700 color-white">HCFR ONLY</h1>
+                        <span class="under-heading color-white font-12 opacity-80">Just For HCFR Employees. Password Protected!</span>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-boxmap"></div>
+                </div> 
+        <a class="button button-m caption-under-button round-huge shadow-huge button-center-large bg-aqua" href="hcfr-only-login.html">Enter</a>
+            </div>
+			
+            <div class="slider-item center-text">
+                <div data-height="250" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom center-text bottom-40">
+                        <h1 class="font-24 font-700 color-white">FAQS</h1>
+                        <span class="under-heading color-white font-12 opacity-80">Can't Remember How To Do Something?</span>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-boxmap"></div>
+                </div> 
+        <a class="button button-m caption-under-button round-huge shadow-huge button-center-large bg-green" href="hcfr-faq.html">Touch To Learn</a>
+            </div>
+        </div>
+
+        <div class="content content-box round-medium shadow-huge top-20">
+            <h4>Greetings!</h4>
+            <p class="bottom-20">
+                HCFR Mobile is designed to give you the information that you need quickly without having to search or wait until you get to a computer. It's all here!
+            </p>
+        </div>	
+		
+        <div class="container">
+            <div class="single-slider  visible-slider2-small owl-carousel">
+                <div>
+				  <a href="https://hillsborough.maps.arcgis.com/apps/opsdashboard/index.html#/fc8173020b93407389e1f7e30af08cb4">
+                    <div class="caption round-medium shadow-huge">
+                        <div class="caption-bottom">
+                            <h4 class="color-white center-text uppercase ultrabold bottom-20">Hydrant Map</h4>
+                        <span class="under-heading color-white font-12 opacity-80 center-text">Better In Landscape Mode</span>
+                        </div>
+                        <div class="caption-overlay bg-gradient"></div>
+                        <img class="caption-image owl-lazy" data-src="images/pictures/hydrant.jpg">
+					  </div></a>
+                </div>
+                <div>
+				  <a href="https://www.cdc.gov/niosh/index.htm">
+                  <div class="caption round-medium shadow-huge">
+                        <div class="caption-bottom">
+                            <h4 class="color-white center-text uppercase ultrabold bottom-20">NIOSH</h4>
+                        </div>
+                        <div class="caption-overlay bg-gradient"></div>
+                        <img class="caption-image owl-lazy" data-src="images/pictures/NIOSH.jpg">
+                    </div></a>
+                </div>
+                <div>
+				  <a href="#" data-menu="union-list">
+                  <div class="caption round-medium shadow-huge">
+                        <div class="caption-bottom">
+                            <h4 class="color-white center-text uppercase ultrabold bottom-20">Local 2294</h4>
+                        </div>
+                        <div class="caption-overlay bg-gradient"></div>
+                        <img class="caption-image owl-lazy" data-src="images/pictures/local2294.jpg">
+                    </div></a>
+                </div>
+            </div>
+            <a href="#" class="prev-slide round-large bg-highlight"><i class="fa fa-angle-left"></i></a>
+            <a href="#" class="next-slide round-large bg-highlight"><i class="fa fa-angle-right"></i></a>
+        </div>
+        
+        <div class="visible-slider double-slider owl-carousel owl-no-dots bottom-0">
+            <a href="fire-sop.html" class="slider-item">
+                <div data-height="280" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom left-15 top-15">
+                        <h1 class="color-white font-25">Fire </h1>
+                        <p class="under-heading color-white opacity-70 font-10">All Things Fire</p>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-32"></div>
+                </div>   
+            </a>
+            <a href="medical-home.html" class="slider-item">
+                <div data-height="280" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom left-15 top-15">
+                        <h1 class="color-white font-25">Medical</h1>
+                        <p class="under-heading color-white opacity-70 font-10">Everything Medical</p>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-34"></div>
+                </div>   
+            </a>
+            <a href="hospitals.html" class="slider-item">
+                <div data-height="280" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom left-15 top-15">
+                        <h1 class="color-white font-25">Hospital</h1>
+                        <p class="under-heading color-white opacity-70 font-10">Hospital Resources</p>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-33"></div>
+                </div>   
+            </a> 
+        </div>
+        
+        <div class="content content-box round-medium shadow-huge">
+            <h2 class="font-700">
+                Helpful Links
+                <i class="fad heading-icon font-16 lime animated faa-horizontal fa-laptop"></i>
+            </h2>
+            <p class="top-10 bottom-30">
+                Here are some common links that we always use, right here and easy to find.
+            </p>
+            <div class="icon-column-left">
+				<a href="https://hillsboroughcounty-wfts.kronos.net/login">
+                <i class="fad fa-money-bill-wave bg-gradient-blue2 color-white shadow-huge animated faa-wrench"></i>
+                <h1 class="font-17 font-600">Telestaff</h1>
+                <p>Need to check your accurals? Here you go! Login to Telestaff.</p>
+				</a>
+            </div>        
+            <div class="clear bottom-30"></div>
+            <div class="icon-column-left">
+				<a href="https://app.targetsolutions.com/auth/index.cfm?action=login.showlogin&customerid=27094&customerpath=hillsboroughcountyfr">
+				<i class="fad fa-laptop-code bg-gradient-red2 color-white shadow-huge animated faa-pulse"></i>
+                <h1 class="font-17 font-600">Target Solutions</h1>
+                <p>Don't Fall behind on your assignments! Log In Now..</p>
+				</a>
+            </div>
+            <div class="clear bottom-30"></div>
+            <div class="icon-column-left">
+				<a href="http://myhr.hillsboroughcounty.org/">
+                <i class="fad fa-stopwatch bg-gradient-green1 color-white shadow-huge animated faa-ring"></i>
+                <h1 class="font-17 font-600">Oracle/Kronos</h1>
+                <p>Need to check your accurals? Here you go! Login to Oracle.</p>
+				</a>
+            </div>
+            <div class="clear bottom-30"></div>
+            <div class="icon-column-left">
+				<a href="https://www.firestrong.org/">
+                <i class="fad fa-dumbbell bg-purple color-white shadow-huge animated faa-ring"></i>
+                <h1 class="font-17 font-600">Firestrong</h1>
+                <p>We all need help sometimes. Reachout. Your not the only one.</p>
+				</a>
+            </div>
+            <div class="clear bottom-30"></div>
+            <div class="icon-column-left">
+				<a href="https://hcfflocal2294.org/">
+                <i class="fad fa-dumpster-fire bg-orange color-white shadow-huge animated faa-ring"></i>
+                <h1 class="font-17 font-600">Local 2294</h1>
+                <p>Need To Access The UNion Site.</p>
+				</a>
+            </div>
+        </div>
+          
+        <div class="visible-slider single-slider owl-carousel owl-no-dots">
+            <div class="slider-item center-text">
+                <div data-height="250" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom center-text bottom-40">
+                        <h1 class="font-24 font-700 color-white">HCFR Policies and Procedures</h1>
+                        <span class="under-heading color-white font-12 opacity-80">Get Access To Alll Of The SOPS Now!</span>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-40"></div>
+                </div>  
+        <a class="button button-m caption-under-button round-huge shadow-huge button-center-large bg-lime" href="fire-sop.html">READ NOW</a>
+            </div>
+	
+            <div class="slider-item center-text">
+                <div data-height="250" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom center-text bottom-40">
+                        <h1 class="font-24 font-700 color-white">Box Maps</h1>
+                        <span class="under-heading color-white font-12 opacity-80">Quick Access To Box Maps.</span>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-41"></div>
+                </div> 
+        <a class="button button-m caption-under-button round-huge shadow-huge button-center-large bg-purple" href="https://hgcweb.com/">Go Now</a>
+            </div>
+			
+            <div class="slider-item center-text">
+                <div data-height="250" class="caption round-medium shadow-huge">
+                    <div class="caption-bottom center-text bottom-40">
+                        <h1 class="font-24 font-700 color-white">Important Dates</h1>
+                        <span class="under-heading color-white font-12 opacity-80">Are Station Logs Due?</span>
+                    </div>
+                    <div class="caption-overlay bg-gradient-fade"></div>
+                    <div class="caption-bg bg-boxmap"></div>
+                </div> 
+        <a class="button button-m caption-under-button round-huge shadow-huge button-center-large bg-orange" href="#" data-menu="menu-calendar-dates">SEE DATES</a>
+            </div>
+        </div>
+
+		<div class="content content-box shadow-huge round-medium top-30">
+            <h2 class="font-700">
+                Tools and Utilities
+                <i class="fad fa-calculator heading-icon font-16 maroon animated faa-tada"></i>
+            </h2>
+            <p class="top-10 bottom-30">
+                Here you will find everything from IV Drip calculators to Flow Chart calculators. Check it out!
+            </p>
+            <ul class="gallery-filter-controls">
+                <li class="gallery-filter-active color-blue-dark gallery-filter-all" data-filter="all">All</li>
+                <li data-filter="1">Fire</li>
+                <li data-filter="2">Medical</li>
+                <li data-filter="3">Critical Care</li>
+            </ul>
+            <div class="divider bottom-15"></div>
+            <div class="gallery gallery-rounded gallery-filter gallery-filter-three bottom-0">
+                <a href="#" data-menu="menu-pedi-calc" data-lightbox="gallery-filter-1" class="default-link filtr-item" title="Pediatric Calculator" data-category="2">
+                    <img src="images/empty.png" data-src="images/pictures/pedi.png" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">Pedi Calc</span>
+                </a>
+                <a href="emergency-calculator/emergency2.html" class="default-link filtr-item" title="Medication Calculator" data-category="2">
+                    <img src="images/empty.png" data-src="images/pictures/calc2.png" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">Med Calc</span>
+                </a>
+                <a href="#" data-menu="menu-np" class="default-link filtr-item" title="Pump Pressure Calculator" data-category="1">
+                    <img src="images/empty.png" data-src="images/pictures/thumb.png" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">Pump Calc</span>
+                </a>
+                <a href="frictionloss.html" class="default-link filtr-item" title="Friction Loss Calculator" data-category="1">
+                    <img src="images/empty.png" data-src="images/pictures/frictionloss.jpg" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">FL Calculator</span>
+                </a>
+                <a href="#" data-menu="menu-master-formula" class="default-link filtr-item" title="Drip Calculator" data-category="2">
+                    <img src="images/empty.png" data-src="images/pictures/dopamine.png" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">Drip Calc</span>
+                </a>
+                <a href="#" data-menu="menu-parkland" class="default-link filtr-item" title="Drip Calculator" data-category="3">
+                    <img src="images/empty.png" data-src="images/pictures/burn2.png" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">Parkland</span>
+                </a>
+                <a href="#" data-menu="menu-map"class="default-link filtr-item" title="Drip Calculator" data-category="3">
+                    <img src="images/empty.png" data-src="images/pictures/map.png" class="preload-image" alt="sample image">
+                    <span class="color-theme center-text">MAP Calc</span>
+                </a>
+            </div>
+        </div>
+    
+        <a href="#" class="back-to-top-icon back-to-top-small shadow-large bg-blue2-dark"><i class="fa fa-angle-up"></i></a>
+    </div>
+	
+        <div class="footer-menu footer-6-icons shadow-huge bottom-0 footer-menu-fixed">
+            <a href="#" data-menu="menu-calendar"><i class="color-red2-dark fad fa-calendar fa-2x"></i><span>Calendar</span></a>
+            <a href="stations.html"><i class="fad fa-truck color-green1-dark"></i><span>Stations</span></a>
+            <a href="#" class="active-nav scale-box"><i class="fad fa-home animated faa-shake"></i><span>Home</span></a>			<a href="https://firebasestorage.googleapis.com/v0/b/hcfr-on-the-go.appspot.com/o/medical-protocol-2017.pdf?alt=media&token=90dfe366-6f39-42be-8f33-381730dcd5d1https://www.google.com"><i class="fad fa-book-medical color-gray2-dark"></i><span>Medical SOP</span></a>
+			<a href="fire-sop.html"><i class="color-yellow1-dark fab fa-free-code-camp"></i><span>Fire SOP</span></a>
+            <a href="#" data-menu="menu-navigation2"><i class="fa fa-bars color-teal-dark"></i><span>Menu</span></a>
+            <div class="clear"></div>
+        </div>    
+	
+	<div id="menu-settings"
+         class="menu-box menu-box-gradient"
+         data-menu-type="menu-box-modal"
+         data-menu-height="100%"
+         data-menu-width="100%"
+         data-menu-load="menu-settings.html"
+         data-menu-effect="menu-over">
+    </div>    
+    
+    <div id="menu-contact"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-modal"
+         data-menu-height="470"
+         data-menu-load="menu-contact.html"
+         data-menu-effect="menu-over">
+    </div> 
+	
+    <div id="menu-md"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-modal"
+         data-menu-height="300"
+         data-menu-width="80%"
+         data-menu-load="menu-md.html"
+         data-menu-effect="menu-over">
+    </div>
+	
+    <div id="menu-pedi-calc"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-modal"
+         data-menu-height="540"
+         data-menu-width="100%"
+		 data-menu-load="menu-pedi-calc.html"
+         data-menu-effect="menu-over">
+    </div>  
+	
+    <div id="menu-search"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-modal"
+         data-menu-height="540"
+         data-menu-width="100%"
+		 data-menu-load="menu-np.html"
+         data-menu-effect="menu-over">
+    </div> 
+	
+    <div id="menu-map"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="600"
+         data-menu-load="menu-map.html"
+         data-menu-effect="menu-over">
+    </div>
+	
+    <div id="menu-navigation"
+         class="menu-box menu-box-gradient menu-transparent"
+         data-menu-type="menu-box-left"
+         data-menu-width="260"
+         data-menu-active="nav-welcome"
+         data-menu-load="menu-navigation.html"
+         data-menu-effect="menu-parallax">
+    </div>    
+	
+	<div id="menu-navigation2"
+         class="menu-box menu-box-gradient menu-transparent"
+         data-menu-type="menu-box-right"
+         data-menu-width="260"
+         data-menu-active="nav-welcome"
+         data-menu-load="menu-navigation.html"
+         data-menu-effect="menu-parallax">
+    </div>
+	
+	<div id="menu-updates"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-top"
+         data-menu-height="390"
+         data-menu-load="menu-updates.html"
+         data-menu-effect="menu-over">
+    </div>
+	
+    <div id="menu-calendar"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-top"
+         data-menu-height="390"
+         data-menu-load="menu-calendar.html"
+         data-menu-effect="menu-over">
+    </div>
+	
+    <div id="menu-calendar-dates"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-top"
+         data-menu-height="390"
+         data-menu-load="menu-calendar-dates.html"
+         data-menu-effect="menu-over">
+    </div>
+	
+    <!-- Share List Sheet-->
+    <div id="union-list"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="250"
+         data-menu-effect="menu-over">
+        
+        <div class="content bottom-0">
+            <h3 class="font-900 top-20 bottom-0">Important Union Documents</h3>
+            <p class="under-heading color-blue2-dark bottom-10 font-11">Helpful Union Resources</p>
+            <a href="#" class="close-menu close-menu-icon"><i class="fa fa-times-circle color-red2-dark"></i></a>
+        </div>
+        
+        <div class="content bottom-0">
+            <div class="link-list link-list-1">
+                <a href="web/pages/admin_general/union2.html"><i class="fad fa-union aqua"></i><span>Suppression CBA</span><i class="fa fa-angle-right"></i></a>
+                <a href="web/pages/admin_general/union.html"><i class="fad fa-file-download liime"></i><span>Supervisory CBA</span><i class="fa fa-angle-right"></i></a>
+                <a href="web/pages/admin_general/union3.html"><i class="fad fa-file-alt purple"></i><span>Paramedic/Telecommunicator</span><i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+	
+    <!--Calendar-->
+    <div id="action-video"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="400"
+         data-menu-effect="menu-over">
+        
+        <div class="content bottom-0">
+            <h3 class="font-900 top-20 bottom-0">HCFR Shift Calendar</h3>
+            <p class="under-heading color-blue2-dark bottom-10 font-11">Are You Working Today?.</p>
+            <a href="#" class="close-menu close-menu-icon"><i class="fa fa-times-circle color-red2-dark"></i></a>
+        </div>
+		
+		
+		<style>
+	iframe {
+	width: 10px !important;
+	min-width: 100%;
+	*width: 100%;
+	}
+
+
+
+	.responsive {
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+	position: relative;
+	}
+
+
+
+	.responsive iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	}
+	</style>
+
+	<div class="responsive">
+		<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%237986CB&amp;ctz=America%2FNew_York&amp;src=ZWlvM3N1bnNwZmIyYW1zcmRqOHRkMDJwdjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=NG5sbzNhNGE4cjM4bmd2aGdzcDY4YXU1cm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=bTR0YWpubDJnY3Q2MWtpN2p2OGk1N2hwOGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23871111&amp;color=%2330487E&amp;color=%231F753C&amp;color=%239D7000&amp;title=HCFR%20Shift%20Calendar&amp;showTz=0&amp;showCalendars=1&amp;showTabs=1&amp;showPrint=1&amp;showNav=1" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+	</div>
+</div>
+
+	  
+	
+    <div class="menu-hider"></div>
+</div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.8.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/calc-script.js"></script>
+<script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.css"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js" async></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="2bd55d304842c5ea183db857-|49" defer=""></script>
+<script type="2bd55d304842c5ea183db857-application/javascript" src='emergency-calculator/js/shards.min.js'></script>
+<script src="emergency-calculator/js/base.js" type="2bd55d304842c5ea183db857-text/javascript"></script>
+<script src='emergency-calculator/js/jquery-migrate-1.4.1.min.js' type="2bd55d304842c5ea183db857-text/javascript"></script>
+<script src="emergency-calculator/js/bootstrap.bundle.min.js" type="2bd55d304842c5ea183db857-text/javascript"></script>
+<script src="emergency-calculator/js/ie10-viewport-bug-workaround.js" type="2bd55d304842c5ea183db857-text/javascript"></script>
+<script type="2bd55d304842c5ea183db857-text/javascript">
+       $(document).ready(function() {
+$('#appNow').on('shown.bs.modal', function () {
+  Cookies.set('appNow', 'yes', {
+        expires: 2,
+        path: '/'
+      });
+})
+
+setTimeout(function() {
+if (Cookies.get('appNow') == null) {
+         //$('#appNow').modal('show');
+         Cookies.set('appNow', 'yes', {
+        expires: 7,
+        path: '/'
+      });
+     }
+      }, 3000);
+
+    new WOW().init();
+      $('.dropdown-toggle').dropdown();
+});
+    </script>
+	</body>
+</html>

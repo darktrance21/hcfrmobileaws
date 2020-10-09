@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Kolor Mobile</title>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,500,500i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">  
+<!-- Don't forget to update PWA version (must be same) in pwa.js & manifest.json -->
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_by_pwa.js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+    
+<body class="theme-light" data-gradient="gradient-1">
+        
+<div id="page">
+    
+    <div id="page-preloader">
+        <div class="loader-main"><div class="preload-spinner"></div></div>
+    </div>
+    
+	<div class="header header-fixed header-logo-app">
+        <a href="#" class="back-button header-logo"></a>
+		<a href="#" class="header-icon header-icon-1 back-button"><i class="fas fa-arrow-left"></i></a>
+		<a href="#" class="header-icon header-icon-2" data-menu="menu-settings"><i class="fas fa-cog fa-spin font-13"></i></a>
+		<a href="#" class="header-icon header-icon-3" data-toggle-theme><i class="fas fa-moon"></i></a>
+    </div>      
+
+    
+    <div class="page-bg"><div></div></div>
+    <div class="page-content header-clear-large">                           
+                    
+        <div class="content content-box round-medium shadow-huge">
+            <p>
+                Geolocation uses your device GPS to track your current location.  
+                We <strong>do not store</strong> any location information from you or your devices.
+            </p>
+            <h4>Get Coordinates</h4>
+            <p class="bottom-0">
+                You can request your device coordinates, these can then be placed on a map.
+            </p>
+            <p class="location-support"></p>
+            <a href="#" class="get-location button button-full bg-blue2-dark button-m button-round-small shadow-large">Get My Location</a>
+            <p class="location-coordinates"></p>
+
+            <h4>Show Location on Map</h4>
+            <p>
+                Tap the "Get My Location" button above and this map will automatically update with your new location. It's that simple.
+            </p>
+            <div class="responsive-iframe bottom-30 add-iframe">
+                <iframe class="location-map" src='https://maps.google.com/?ie=UTF8&amp;ll=47.595131,-122.330414&amp;spn=0.006186,0.016512&amp;t=h&amp;z=17&amp;output=embed'></iframe>
+            </div>
+        </div>
+
+
+        <div class="footer" data-footer-load="menu-footer.html"></div>   
+    </div>
+    
+    <!-- Page Menus -->
+    <div id="menu-share"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="390"
+         data-menu-load="menu-share.html"
+         data-menu-effect="menu-over">
+    </div>   
+    
+    <div id="menu-settings"
+         class="menu-box menu-box-gradient"
+         data-menu-type="menu-box-modal"
+         data-menu-height="100%"
+         data-menu-width="100%"
+         data-menu-load="menu-settings.html"
+         data-menu-effect="menu-over">
+    </div>  
+    
+    <div class="menu-hider"></div>
+</div>
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js" async></script>
+</body>

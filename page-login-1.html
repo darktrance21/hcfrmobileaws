@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>HCFR Mobile</title>
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/all.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/solid.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/font-awesome-animation.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/light.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/duotone.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/regular.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/brands.css">
+<link rel="stylesheet" type="text/css" href="styles/colors.css">
+<link rel="stylesheet" type="text/css" href="styles/calendar.css">
+<link rel="stylesheet" type="text/css" href="styles/calc-style.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_by_pwa.js">
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+<script src="/__/firebase/7.21.1/firebase-app.js"></script>
+<script src="/__/firebase/7.21.1/firebase-auth.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script type="text/javascript">
+
+  function toggleSignIn() {
+    if (firebase.auth().currentUser) {
+      // [START signout]
+      firebase.auth().signOut();
+      // [END signout]
+    } else {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START authwithemail]
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        document.getElementById('quickstart-sign-in').disabled = false;
+        // [END_EXCLUDE]
+      });
+      // [END authwithemail]
+    }
+    document.getElementById('quickstart-sign-in').disabled = true;
+  }
+
+  /**
+   * Handles the sign up button press.
+   */
+  function handleSignUp() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (email.length < 4) {
+      alert('Please enter an email address.');
+      return;
+    }
+    if (password.length < 4) {
+      alert('Please enter a password.');
+      return;
+    }
+    // Create user with email and pass.
+    // [START createwithemail]
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+    // [END createwithemail]
+  }
+
+  /**
+   * Sends an email verification to the user.
+   */
+  function sendEmailVerification() {
+    // [START sendemailverification]
+    firebase.auth().currentUser.sendEmailVerification().then(function() {
+      // Email Verification sent!
+      // [START_EXCLUDE]
+      alert('Email Verification Sent!');
+      // [END_EXCLUDE]
+    });
+    // [END sendemailverification]
+  }
+
+  function sendPasswordReset() {
+    var email = document.getElementById('email').value;
+    // [START sendpasswordemail]
+    firebase.auth().sendPasswordResetEmail(email).then(function() {
+      // Password Reset Email Sent!
+      // [START_EXCLUDE]
+      alert('Password Reset Email Sent!');
+      // [END_EXCLUDE]
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/invalid-email') {
+        alert(errorMessage);
+      } else if (errorCode == 'auth/user-not-found') {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+    // [END sendpasswordemail];
+  }
+
+  /**
+   * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+   *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+   *    out, and that is where we update the UI.
+   */
+  function initApp() {
+    // Listening for auth state changes.
+    // [START authstatelistener]
+    firebase.auth().onAuthStateChanged(function(user) {
+      // [START_EXCLUDE silent]
+      document.getElementById('quickstart-verify-email').disabled = true;
+      // [END_EXCLUDE]
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+                // [START_EXCLUDE]
+        document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+        document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+        if (!emailVerified) {
+          document.getElementById('quickstart-verify-email').disabled = false;
+        }
+        // [END_EXCLUDE]
+      } else {
+        // User is signed out.
+        // [START_EXCLUDE]
+        document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+        document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+        // [END_EXCLUDE]
+      }
+      // [START_EXCLUDE silent]
+      document.getElementById('quickstart-sign-in').disabled = false;
+      // [END_EXCLUDE]
+    });
+    // [END authstatelistener]
+
+    document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
+    document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+  }
+
+  window.onload = function() {
+    initApp();
+  };
+</script>
+</head>
+
+<body class="theme-dark" data-gradient="gradient-1">
+
+<div id="page">
+
+    <div id="page-preloader">
+        <div class="loader-main"><div class="preload-spinner"></div></div>
+    </div>
+
+	<div class="header header-fixed header-logo-app">
+		<a href="index.html" class="back-button header-logo"></a>
+        <a href="#" class="header-icon header-icon-1" data-menu="menu-navigation"><i class="fad fa-bars animated faa-wrench lime"></i></a>
+		<a href="#" class="header-icon header-icon-2" data-menu="menu-updates"><i class="fad fa-bookmark animated faa-ring yellow"></i></a>
+		<a href="#" class="header-icon header-icon-3" data-menu="menu-search"><i class="fad fa-search animated olive faa-pulse"></i></a>
+		<a href="#" class="header-icon header-icon-4" data-menu="menu-settings"><i class="fad fa-cog fa-spin font-13 teal"></i></a>
+		<a href="#" class="header-icon header-icon-5" data-toggle-theme><i class="fad fa-moon animated faa-shake fuchsia"></i></a>
+		<a href="#" class="header-icon header-icon-6" data-menu="menu-contact"><i class="fad fa-envelope-open animated faa-tada orange"></i></a>
+	</div>
+
+    <div class="page-bg"><div></div></div>
+    <div class="page-content header-clear-large">
+
+        <div class="content content-box content-box-full-top content-box-full-bottom round-medium shadow-huge ">
+            <img src="images/pictures/9w.jpg" class="responsive-image-full shadow-huge bottom-20">
+            <img src="images/pictures/0s.png" class="input-image round-medium shadow-huge" alt="img">
+            <h1>Login</h1>
+            <p class="under-heading font-10 color-theme opacity-70 bottom-10">Hello stranger, let's get you into your account.</p>
+            <div class="input-style has-icon input-style-1 input-required">
+                <i class="input-icon fa fa-user"></i>
+                <span>Name</span>
+                <em>(required)</em>
+                <input type="text" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="input-style has-icon input-style-1 input-required">
+                <i class="input-icon fa fa-lock"></i>
+                <span>Password</span>
+                <em>(required)</em>
+                <input type="text" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="one-half top-20">
+                <a class="color-gray-light text-left font-10" id="quickstart-password-reset" name="verify-email">Forgot Password</a>
+            </div>
+            <div class="one-half top-20 last-column">
+                <a class="color-gray-light text-right font-10" id="quickstart-sign-up" name="signup">Create Account</a>
+            </div>
+            <div class="clear"></div>
+            <a class="back-button button button-m round-huge shadow-huge button-full bg-green1-dark top-30 bottom-25" id="quickstart-sign-in" name="signin">Sign In</a>
+            <!-- Container where we'll display the user details -->
+            <div class="quickstart-user-details-container">
+              Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+              <div>Firebase auth <code>currentUser</code> object value:</div>
+              <pre><code id="quickstart-account-details">null</code></pre>
+            </div>
+        </div>
+
+        <div class="footer" data-footer-load="menu-footer.html"></div>
+
+
+    </div>
+
+
+    <div id="menu-share"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-bottom"
+         data-menu-height="390"
+         data-menu-load="menu-share.html"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-settings"
+         class="menu-box menu-box-gradient"
+         data-menu-type="menu-box-modal"
+         data-menu-height="100%"
+         data-menu-width="100%"
+         data-menu-load="menu-settings.html"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-contact"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-modal"
+         data-menu-height="470"
+         data-menu-load="menu-contact.html"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div class="menu-hider"></div>
+</div>
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js" async></script>
+<script type="text/javascript" src="scripts/app-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-performace.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyC7Z8MMdzJTmeh1mPZt1Ln3wq9DdJbFiSU",
+    authDomain: "hcfr-guide.firebaseapp.com",
+    databaseURL: "https://hcfr-guide.firebaseio.com",
+    projectId: "hcfr-guide",
+    storageBucket: "hcfr-guide.appspot.com",
+    messagingSenderId: "394617753192",
+    appId: "1:394617753192:web:7d925f4fed1d2c24c9b5dd",
+    measurementId: "G-RTTK2HRLYB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  firebase.auth();
+</script>
+
+</body>
+</html>

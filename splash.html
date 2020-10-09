@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>HCFR Mobile</title>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,500,500i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">  
+<!-- Don't forget to update PWA version (must be same) in pwa.js & manifest.json -->
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_by_pwa.js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+    
+<body class="theme-light" data-gradient="gradient-1">
+<script type = "text/javascript">
+
+// Note: Like all Javascript password scripts, this is hopelessly insecure as the user can see 
+//the valid usernames/passwords and the redirect url simply with View Source.  
+// And the user can obtain another three tries simply by refreshing the page.  
+//So do not use for anything serious!
+
+var count = 2;
+function validate() {
+var un = document.myform.username.value;
+var pw = document.myform.pword.value;
+var valid = false;
+
+var unArray = ["hcfr"];  // as many as you like - no comma after final entry
+var pwArray = ["hcfrmobile"];  // the corresponding passwords;
+
+for (var i=0; i <unArray.length; i++) {
+if ((un == unArray[i]) && (pw == pwArray[i])) {
+valid = true;
+break;
+}
+}
+
+if (valid) {
+alert ("Login was successful");
+window.location = "home.html";
+return false;
+}
+
+var t = " tries";
+if (count == 1) {t = " try"}
+
+if (count >= 1) {
+alert ("Invalid username and/or password.  You have " + count + t + " left.");
+document.myform.username.value = "";
+document.myform.pword.value = "";
+setTimeout("document.myform.username.focus()", 25);
+setTimeout("document.myform.username.select()", 25);
+count --;
+}
+
+else {
+alert ("Still incorrect! You have no more tries left!");
+document.myform.username.value = "No more tries allowed!";
+document.myform.pword.value = "";
+document.myform.username.disabled = true;
+document.myform.pword.disabled = true;
+return false;
+}
+
+}
+
+</script>
+        
+<div id="page">
+    
+    <div id="page-preloader">
+        <div class="loader-main"><div class="preload-spinner"></div></div>
+    </div>
+    
+	<div class="header header-transparent header-fixed header-logo-app">
+        <a href="#" class="back-button header-title color-white"></a>
+		<a href="#" class="header-icon header-icon-1 color-white back-button"><i class="fas fa-arrow-left"></i></a>
+	</div>
+                  
+    <div class="page-bg"><div></div></div>
+    <div class="page-content">     
+                
+        <div data-height="cover-header" class="caption bottom-0">
+            <div class="caption-bottom center-text">
+                <h2 class="color-white font-40 center-text bottom-20 font-900 uppercase">
+                    HCFR-Mobile
+                </h2>
+                <p class="color-white boxed-text-large opacity-50 bottom-30 font-14">
+                    Welcome Firefighters and Paramedics  <br>
+                    of Hillsborough County.
+                </p>
+                <a href="#" data-menu="menu-login" class="button button-s button-center-small bg-blue2-dark round-huge bottom-40">Get Started</a>
+                <img width="371" src="images/pictures/walk2_cut.png">
+            </div>
+        </div>
+        <div class="caption-overlay bg-black opacity-80"></div>
+        <div class="caption-bg" style="background-image:url(images/pictures/screen.png);"></div>
+    
+        
+    </div>      
+	
+
+      
+        
+    <div class="menu-hider"></div>
+</div>
+	
+    <div id="menu-login"
+         class="menu-box menu-box-detached round-medium"
+         data-menu-type="menu-box-modal"
+         data-menu-height="540"
+         data-menu-width="85%"
+		 data-menu-load="hcfr-login.html"
+         data-menu-effect="menu-over">
+    </div> 
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js" async></script>
+</body>
+
+    

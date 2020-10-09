@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/flipbook.css" />
+    <script src="js/old-browser-checker.js"></script>
+    <script src="js/modernizr.custom.min.js"></script>
+  </head>
+  <body style="overflow: hidden">
+    <header>
+      <div class="title sample">Flipbook sample</div>
+    </header>
+    <aside>
+      <h1>Controls</h1>
+      <h2>Navigate:</h2>
+      <button id="previous">Previous page</button>
+      <button id="next">Next page</button>
+      <hr />
+      <h1>Instructions</h1>
+      <p>
+        Use the buttons to navigate between pages. You can also click and drag the corners of the pages.
+      </p>
+    </aside>
+    <div id="flipbook">
+      <div id="loading-message"></div>
+    </div>
+    <script src="js/menu-button.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/lib/core/CoreControls.js"></script>
+    <script src="js/turn.min.js"></script>
+
+    
+
+    <script>
+      Modernizr.addTest('async', function() {
+        try {
+          var result;
+          eval('let a = () => {result = "success"}; let b = async () => {await a()}; b()');
+          return result === 'success';
+        } catch (e) {
+          return false;
+        }
+      });
+
+      // test for async and fall back to code compiled to ES5 if they are not supported
+      ['flipbook.js'].forEach(function(js) {
+        var script = Modernizr.async ? js : js.replace('.js', '.ES5.js');
+        var scriptTag = document.createElement('script');
+        scriptTag.src = script;
+        scriptTag.type = 'text/javascript';
+        document.getElementsByTagName('head')[0].appendChild(scriptTag);
+      });
+    </script>
+	 <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-storage.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBOmynMAcUWCZDuSdXaaP3hmeOFJjM4vAs",
+    authDomain: "hcfr-pocket-guide-app-f550f.firebaseapp.com",
+    databaseURL: "https://hcfr-pocket-guide-app-f550f.firebaseio.com",
+    projectId: "hcfr-pocket-guide-app",
+    storageBucket: "hcfr-pocket-guide-app.appspot.com",
+    messagingSenderId: "455278316139",
+    appId: "1:455278316139:web:c8494922ccd4a77d997f2e",
+    measurementId: "G-E4H7F0LMHG"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<div class="content bottom-0">
+    <h1 class="font-800 font-27 center-text top-20">Get in Touch</h1>
+    <p class="boxed-text-huge">Send us a message and we'll get back to you in the shortest possible time.</p>
+    <div class="divider divider-small bg-blue2-dark"></div>
+    
+    <div class="contact-form">
+        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+            <div class="bg-green1-dark round-medium shaow-huge">
+                <h1 class="color-white center-text top-30"><i class="fa fa-check-circle fa-3x shadow-small round-image"></i></h1>
+                <h2 class="color-white bold center-text top-20">Message Sent</h2>
+                <p class="color-white under-heading boxed-text-large bottom-30">We'll get back to you shortly.</p>
+            </div>
+        </div>
+        <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
+            <fieldset>
+                <div class="formValidationError round-huge top-30 bg-red2-dark" id="contactNameFieldError">
+                    <span class="center-text uppercase color-white ultrabold">Name is required!</span>
+                </div>
+                <div class="formValidationError round-huge top-30 bg-red2-dark" id="contactEmailFieldError">
+                    <span class="center-text uppercase color-white ultrabold">Mail address required!</span>
+                </div>
+                <div class="formValidationError round-huge top-30 bg-red2-dark" id="contactEmailFieldError2">
+                    <span class="center-text uppercase color-white ultrabold">Mail address must be valid!</span>
+                </div>
+                <div class="formValidationError round-huge top-30 bg-red2-dark" id="contactMessageTextareaError">
+                    <span class="center-text uppercase color-white ultrabold">Message field is empty!</span>
+                </div>
+                <div class="form-field form-name">
+                    <input type="text" placeholder="Your Name" name="contactNameField" value="" class="contactField requiredField" id="contactNameField" />
+                </div>
+                <div class="form-field form-email">
+                    <input type="text" placeholder="Email Address" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField" />
+                </div>
+                <div class="form-field form-text">
+                    <textarea placeholder="Enter your Message" name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
+                </div>
+                <div class="form-button">
+                    <input type="submit" class="button bg-blue2-dark button-s button-full round-small shadow-huge bottom-0 contactSubmitButton" value="Send Message" data-formId="contactForm" />
+                </div>
+            </fieldset>
+        </form>			
+    </div>
+</div>
+
